@@ -1,0 +1,6 @@
+/ny_taxi_postgres_data/
+/.ipynb_checkpoints
+output/
+*.csv.gz
+*.csv
+*.txt
