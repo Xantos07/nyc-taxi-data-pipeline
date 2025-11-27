@@ -6,18 +6,20 @@ terraform {
     }
   }
 }
+
 provider "google" {
-  project = "project-38f9ae16-bea2-4d91-8e8"
-  region  = "europe-west1"
+  credentials = file(var.credentials)
+  project = var.project
+  region  = var.region
 }
 
 resource "google_storage_bucket" "demo-bucket" {
-  name          = "project-38f9ae16-bea2-4d91-8e8-terra-bucket"
-  location      = "europe-west1"
+  name          = var.gcs_bucket_name
+  location      = var.location
   force_destroy = true
 
   uniform_bucket_level_access = true
-  
+
   lifecycle_rule {
     condition {
       age = 1
@@ -26,4 +28,9 @@ resource "google_storage_bucket" "demo-bucket" {
       type = "Delete"
     }
   }
+}
+
+resource "google_bigquery_dataset" "demo_dataset" {
+  dataset_id = var.bq_dataset_name
+  location   = var.location
 }

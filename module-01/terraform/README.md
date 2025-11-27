@@ -4,7 +4,7 @@ Ce dossier contient la configuration Terraform pour provisionner les ressources 
 
 ## 📋 Prérequis
 
-- [Terraform](https://www.terraform.io/downloads.html) >= 1.0
+- [Terraform](https://www.terraform.io/downloads.html) = 7.12.0 ou supérieur installé
 - Compte [Google Cloud Platform](https://cloud.google.com/)
 - Projet GCP créé avec facturation activée
 - Clé de service GCP (fichier JSON)
@@ -15,10 +15,9 @@ Ce dossier contient la configuration Terraform pour provisionner les ressources 
 
 #### Étape 1 : Créer le compte de service
 
-1. Aller sur [GCP Console](https://console.cloud.google.com/)
-2. **IAM & Admin** → **Service Accounts**
-3. Cliquer sur **Create Service Account**
-4. Donner un nom au compte (ex: `terraform-sa`)
+1. **IAM & Admin** → **Service Accounts**
+2. Cliquer sur **Create Service Account**
+3. Donner un nom au compte (ex: `terraform-sa`)
 
 #### Étape 2 : Assigner les rôles
 
@@ -60,30 +59,6 @@ Si vous ne pouvez pas modifier la règle :
 dans un dossier `keys/` à la racine de ce dossier terraform.
 et renommer la clé en `my-creds.json`.
 ⚠️ **Important** : Le dossier `keys/` est dans le `.gitignore` pour éviter de pousser vos credentials sur GitHub.
-
-### 3. Configurer la variable d'environnement
-
-**Windows PowerShell :**
-```powershell
-$env:GOOGLE_APPLICATION_CREDENTIALS="chemin\terraform\keys\my-creds.json"
-```
-
-**Linux/Mac :**
-```bash
-export GOOGLE_APPLICATION_CREDENTIALS="$(pwd)/keys/my-creds.json"
-```
-
-### 4. Vérifier la configuration
-
-**Windows PowerShell :**
-```powershell
-echo $env:GOOGLE_APPLICATION_CREDENTIALS
-```
-
-**Linux/Mac :**
-```bash
-echo $GOOGLE_APPLICATION_CREDENTIALS
-```
 
 ## 🚀 Utilisation de Terraform
 
