@@ -1,34 +1,39 @@
 variable "credentials" {
-  description = "my credentials"
-  default = "./keys/my-creds.json"
+  description = "Path to GCP credentials JSON file"
+  type        = string
 }
 
 variable "project" {
-  description = "Project"
-  default     = "project-38f9ae16-bea2-4d91-8e8"
+  description = "Project ID"
+  type        = string
 }
 
 variable "region" {
-  description = "Project region"
-  default     = "europe-west1"
+  description = "region"
+  type        = string
 }
 
 variable "location" {
-  description = "Project location"
-  default     = "EU"
+  description = "location"
+  type        = string
 }
 
 variable "bq_dataset_name" {
-  description = "My BigQuery Dataset Name"
-  default     = "demo_dataset"
+  description = "BigQuery dataset name"
+  type        = string
 }
 
 variable "gcs_bucket_name" {
-  description = "My Storage Bucket Name"
-  default     = "project-38f9ae16-bea2-4d91-8e8-terra-bucket"
+  description = "bucket name"
+  type        = string
 }
 
 variable "gcs_storage_class" {
-  description = "Bucket Storage class"
-  default     = "STANDARD"
+  description = "bucket storage class"
+  type        = string
+}
+
+variable "ssh_public_key_path" {
+  description = "Path to SSH public key file"
+  type        = string
 }

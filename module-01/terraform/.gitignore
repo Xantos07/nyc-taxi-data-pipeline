@@ -13,3 +13,5 @@
 
 # Répertoire local de Terraform
 .terraform/
+
+terraform.tfvars
